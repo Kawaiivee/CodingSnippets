@@ -25,12 +25,6 @@ public class FileRead{
         }
     }
 
-    public static String input(){
-        Scanner scan = new Scanner(System.in);
-        String currentInput = scan.nextLine();
-        return currentInput;
-    }
-
     public static void print(String S){
         System.out.println(S);
     }
