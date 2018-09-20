@@ -4,8 +4,7 @@ class Student
     def initialize(name)
         @name = name
         @password = ""
-        @id = @@id + 1
-        @@id = @@id + 1
+        @id = @@id = @@id + 1
     end
 
 #Name
@@ -33,7 +32,7 @@ class Student
 #toString
     def toString
         idSTR = @id.to_s
-        puts "\nName: "+@name+"\nID: "+idSTR+"\nPassword: "+@password
+        return "Name: "+@name+"\nID: "+idSTR+"\nPassword: "+@password
     end
 end
 
@@ -41,11 +40,6 @@ S1 = Student.new("Mario")
 S2 = Student.new("Luigi")
 S3 = Student.new("Yoshi")
 
-puts S1.name
-S2.password=("SpookyGhosts")
-puts(S2.password)
-puts(S2.id)
-
-S1.toString
-S2.toString
-S3.toString
+puts S1.toString
+puts S2.toString
+puts S3.toString
