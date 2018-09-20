@@ -9,7 +9,7 @@ hash1 = {"Ramir" => "Aguilos", "Kawaii" => "Vee", "Psycho" => "Tech87"}
 hash2 = {"k1" => 1, "k2" => 2, "k3" => 3, "k4" => 4}
 
 
-#Iterative Loops For data
+#Iterative Loops For Data
 for arg in intArray
     puts arg
 end
