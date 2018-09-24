@@ -39,10 +39,6 @@ void loop() {
     Serial.println(c);
     selector(c);
   }
-  else{
-    selector(lastc);
-  }
-  lastc = c;
 }
 
 //picks motor function
@@ -105,4 +101,3 @@ void stopped(){
   RMOTOR.setSpeed(0);
   //delay(delayTimer);
 }
-
