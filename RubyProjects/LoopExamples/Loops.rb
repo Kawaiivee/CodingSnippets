@@ -18,20 +18,25 @@ for arg in charArray
     puts arg
 end
 
-for arg in intArray
-    puts arg
-end
-
 for arg in strArray
     puts arg
 end
 
+for i < intArray.size
+    puts intArray[i]
+    i += 1
+end
+
+print "Items in hash1:"
 puts hash1.size
 
 hash1.each_key do |key, val|
     puts key
     puts hash1[key]
 end
+
+print "Items in hash2: "
+puts hash2.size
 
 hash2.each_key do |key, val|
     puts key
