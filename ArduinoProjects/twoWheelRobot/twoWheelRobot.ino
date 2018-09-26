@@ -14,9 +14,7 @@ void setup(){
 	RMOTOR.setSpeed(0);
 
 	LMOTOR.run(RELEASE);
-	RMOTOR.run(RELEASE);
-
-	
+	RMOTOR.run(RELEASE);	
 }
 
 int motorTimer = 100;
