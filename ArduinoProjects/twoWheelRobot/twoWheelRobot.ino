@@ -8,6 +8,7 @@ SoftwareSerial BT(9,10);
 
 void setup(){
 	BT.begin(9600);
+	Serial.begin(9600);
 	Serial.println("BT Ready");
 
 	LMOTOR.setSpeed(0);
@@ -18,32 +19,53 @@ void setup(){
 }
 
 int motorTimer = 100;
-int delayTimer = 0;
 char c;
+char lastc;
 
+//HOLDING THE BUTTON DOWN KIND OF WORKS. THIS IS A NAIVE POLLING SYSTEM 
+//BECAUSE WE CHECK IF THERE IS A NEW SIGNAL READ...
+//THIS CAUSES AN ISSUE WHERE WE CAN ONLY POLL 'AFTER' THE MOTOR RUNS
+//THE ACTUAL FIX WOULD BE TO HAVE THE BT CONTROLLER BE ABLE TO HAVE AND F and f state for 'PRESSED' AND 'released' respectively
+//THE OTHER FIX WOULD BE TO HAVE SOME KIND OF TIME-POLLING SYSTEM TO CHECK FOR NEW INPUTS...THIS WAS HARD TO IMPLEMENT
+//AND THE DELAY() FUNCTIONS NECESSARY DIDN'T HELP.
+//BELOW IS THE BEST I COULD COME UP WITH
+//
+//change motorTimer to smaller numbers for better polling change to larger numbers for larger movements...such a damn trade-off 
 void loop(){
 	if(BT.available()){
-		c = BT.read();
+		if(c = BT.read()){
+			lastc = c;
+			selector(c);
+		}
+		else if(lastc==c){
+			c = 'S';
+			selector(lastc);
+		}
+		else{
+			selector(c);
+		}
 		BT.println(c);
 		Serial.println(c);
-		selector();
 	}
 }
 
-void selector(){
-	if(c=='F'){
+void selector(char choice){
+	if(choice=='F'){
 		forward();
 	}
-	if(c=='B'){
+	if(choice=='B'){
 		backward();
 	}
-	if(c=='L'){
+	if(choice=='L'){
 		left();
 	}
-	if(c=='R'){
+	if(choice=='R'){
 		right();
 	}
-	if(c=='S'){
+	if(choice=='S'){
+		stopped();
+	}
+	else{
 		stopped();
 	}
 }
@@ -87,5 +109,4 @@ void stopped(){
 	RMOTOR.run(RELEASE);
 	LMOTOR.setSpeed(0);
 	RMOTOR.setSpeed(0);
-	delay(motorTimer);
 }
