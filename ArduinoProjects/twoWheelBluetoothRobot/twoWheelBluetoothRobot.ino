@@ -25,16 +25,14 @@ char lastc;
 //found android 'Arduino Bluetooth Controller app' that sends a char on release of a button
 void loop(){
 	if(BT.available()){
-		if(c = BT.read()){
-			lastc = c;
-			selector(c);
-		}
-		else{
-			selector(c);
-		}
+		c = BT.read();
+	  selector(c);
 		BT.println(c);
 		Serial.println(c);
 	}
+  else{
+    selector(c);
+  }
 }
 
 void selector(char choice){
@@ -50,7 +48,7 @@ void selector(char choice){
 	if(choice=='R'){
 		right();
 	}
-	if(choice=='O'){
+	if(choice=='0' || choice == 'S'){
 		stopped();
 	}
 	else{
@@ -65,7 +63,7 @@ void forward(){
 	RMOTOR.run(f);
 	LMOTOR.setSpeed(200);
 	RMOTOR.setSpeed(200);
-        //delay(motorTimer);
+  //delay(motorTimer);
 }
 
 void backward(){
