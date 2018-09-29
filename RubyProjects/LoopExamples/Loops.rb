@@ -1,4 +1,4 @@
-intArray = [3,1,4,1,5,9]
+intArray = [3,1,4,1,5,9,6,2,8]
 charArray = ['H','E','L','L','O']
 strArray = ["I","love","you"]
 
