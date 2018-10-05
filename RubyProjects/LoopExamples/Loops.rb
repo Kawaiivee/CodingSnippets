@@ -22,7 +22,8 @@ for arg in strArray
     puts arg
 end
 
-for i < intArray.size
+i = 0
+while i < intArray.size
     puts intArray[i]
     i += 1
 end
@@ -31,14 +32,30 @@ print "Items in hash1:"
 puts hash1.size
 
 hash1.each_key do |key, val|
-    puts key
-    puts hash1[key]
+    puts key + ":" + hash1[key]
 end
 
 print "Items in hash2: "
 puts hash2.size
 
 hash2.each_key do |key, val|
-    puts key
-    puts hash2[key]
+    puts key + ": %f " % hash2[key] + hash2[key].to_s
+end
+
+for i in 0..5
+    if intArray[i] < 2
+        next
+    end
+    puts intArray[i]
+end
+
+j = 0
+while j < 5
+    if charArray[j] == 'L'
+        puts "Removed L's"
+        j += 1
+        next
+    end
+    puts charArray[j]
+    j += 1
 end
