@@ -22,17 +22,13 @@ void setup(){
 
 char c;
 void loop(){
-  Serial.println(servo.read());
   if(BT.available()){
     c = BT.read();
-    motorSelector(c);
-    servoSelector(c);
+    selector(c);
   }
-  BT.println(c);
-  Serial.println(c);
 }
 
-void motorSelector(char choice){
+void selector(char choice){
   switch(choice){
     case 'F':
       forward();
@@ -49,33 +45,21 @@ void motorSelector(char choice){
     case 'S':
       stopped();
       break;
+    case 'X':
+      delay(100);
+      servo.write(180);
+      delay(100);
+      break;
+    case 'Y':
+      delay(100);
+      servo.write(0);
+      delay(100);
+      break;
     default:
       stopped();
       break;
+      
   }
-}
-
-void servoSelector(char choice){
-    switch(choice){
-      case 'X':
-        servo.attach(10);
-        for(int pos; pos > 0; pos-=20){
-          servo.write(pos);
-        }
-        servo.detach();
-        break;
-      case 'Y':
-        servo.attach(10);
-        for(int pos; pos < 180; pos+=20){
-          servo.write(pos);
-        }
-        delay(200);
-        servo.detach();
-        break;
-      default:
-        servo.detach();
-        break;
-    }
 }
 
 char f = FORWARD;
