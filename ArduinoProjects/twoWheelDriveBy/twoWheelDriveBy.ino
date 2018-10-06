@@ -36,7 +36,6 @@ void loop() {
   //Serial.println("Bluetooth Read");
   if (BT.available()){
     c=(BT.read());
-    lastc = c;
     Serial.println(c);
   	selector(c);
   }
@@ -64,16 +63,16 @@ void selector(char choice){
 int f = FORWARD;
 int b = BACKWARD;
 void forward(){
-	LMOTOR.run(b);
-	RMOTOR.run(b);
+	LMOTOR.run(f);
+	RMOTOR.run(f);
 	LMOTOR.setSpeed(200);
 	RMOTOR.setSpeed(200);
 	delay(motorTimer);
 }
 
 void backward(){
-	LMOTOR.run(f);
-	RMOTOR.run(f);
+	LMOTOR.run(b);
+	RMOTOR.run(b );
 	LMOTOR.setSpeed(200);
 	RMOTOR.setSpeed(200);
 	delay(motorTimer);
