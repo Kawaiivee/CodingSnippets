@@ -29,23 +29,25 @@ void loop(){
 }
 
 void selector(char choice){
-	if(choice=='F'){
-		forward();
-	}
-	if(choice=='B'){
-		backward();
-	}
-	if(choice=='L'){
-		left();
-	}
-	if(choice=='R'){
-		right();
-	}
-	if(choice=='S'){
-		stopped();
-	}
-	else{
-		stopped();
+	switch(choice){
+    case 'F':
+      forward();
+      break;
+    case 'B':
+      backward();
+      break;
+    case 'L':
+      left();
+      break;
+    case 'R':
+      right();
+      break;
+    case 'S':
+      stopped();
+      break;
+    default:
+      stopped();
+      break;
 	}
 }
 
