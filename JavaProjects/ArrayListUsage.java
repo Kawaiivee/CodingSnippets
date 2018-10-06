@@ -1,3 +1,6 @@
+import MyPackage.Person;
+import MyPackage.Student;
+
 import java.util.*;
 
 public class ArrayListUsage{
@@ -6,11 +9,12 @@ public class ArrayListUsage{
         Person P2 = new Person("Ray", "Bradbury");
         Person P3 = new Person("Haruki", "Murakami");
         Person P4 = new Person("George", "Orwell");
-        Person P5 = new Person("Ender", "Wiggins");
+        Student P5 = new Student("Ender", "Wiggins", "Battle School", 4.0f, 'A');
+        Student P6 = new Student("Gregory", "Heffley", "Elementary School", 2.0f, 'C');
 
         ArrayList<Person> list = new ArrayList();
-        Person[] array = {P1, P2, P3, P4, P5};
-        String[] fullName = new String[5];
+        Person[] array = {P1, P2, P3, P4, P5, P5, P6};
+        String[] fullName = new String[7];
         int count = 0;
 
         for(Person p : array){
