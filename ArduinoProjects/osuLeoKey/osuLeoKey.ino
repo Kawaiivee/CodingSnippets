@@ -1,11 +1,8 @@
 #include "Keyboard.h"
-#include "Mouse.h"
 
 void setup(){
 	pinMode(2, INPUT);
 	pinMode(3, INPUT);
-	Serial.begin(9600);
-	Mouse.begin();
 	Keyboard.begin();
 }
 
@@ -19,4 +16,4 @@ void loop(){
 	else{
 		Keyboard.releaseAll();
 	}
-}xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxzzzzzzzzzzzzzzzzzzzzzzzzxzxzzxzxzxzxzxzxzzzxzxzxzxzxzxzxxzzzzxzxzxzxzxxxxxzxxzxzxzxxzxzxzxxzxzxzxxxzxzxzxzxxxxzxzxzxzxzxxzxzxzxzxzxzxzxzzxzxzxzzzxzxzxzxzzxzxzzzzzzzzzzzzzzzzzxzxzzxzxzzxzzxzxzzzxz
+}
