@@ -15,36 +15,32 @@ class Person:
         id = str(self.id)
         return str(self.firstname + " " + self.lastname + " " + str(self.age) + " " + id)
 
-
-person0 = Person("Haruki","Marukami", 25)
+person0 = Person("Haruki", "Marukami", 25)
 person1 = Person("Noboru", "Watanabe", 30)
-person2 = Person("May","Kasahara", 15)
+person2 = Person("May", "Kasahara", 15)
 person3 = Person("Malta", "Kano", 25)
 
-currentid = 0
 @person0
 def function():
-    newid = currentid
-    return newid + 1
+    return 1
 
 @person1
 def name():
-    newid = currentid
-    return newid + 1
+    return 2
 
 @person2
 def doesnt():
-    newid = currentid
-    return newid + 1
+    return 3
 
 @person3
 def matter():
-    newid = currentid
-    return newid + 1
+    return 4
 
 personList = [person0, person1, person2, person3]
 for p in personList:
     print(p)
+
+#########################################################
 class Pizza(object):
     def __init__(self):
         self.toppings = []
