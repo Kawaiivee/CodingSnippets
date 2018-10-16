@@ -12,30 +12,35 @@ class Person:
         self.id = newid()
 
     def __repr__(self):
-        return str(self.firstname + " " + self.lastname, str(self.age), str(self.id))
+        id = str(self.id)
+        return str(self.firstname + " " + self.lastname + " " + str(self.age) + " " + id)
 
 
-person0 = Person("Haruki","Marukami")
-person1 = Person("Noboru", "Watanabe")
-person2 = Person("May","Kasahara")
-person3 = Person("Malta", "Kano")
+person0 = Person("Haruki","Marukami", 25)
+person1 = Person("Noboru", "Watanabe", 30)
+person2 = Person("May","Kasahara", 15)
+person3 = Person("Malta", "Kano", 25)
 
 currentid = 0
 @person0
 def function():
-    return currentid + 1
+    newid = currentid
+    return newid + 1
 
 @person1
 def name():
-    return currentid + 1
+    newid = currentid
+    return newid + 1
 
 @person2
 def doesnt():
-    return currentid + 1
+    newid = currentid
+    return newid + 1
 
 @person3
 def matter():
-    return currentid + 1
+    newid = currentid
+    return newid + 1
 
 personList = [person0, person1, person2, person3]
 for p in personList:
