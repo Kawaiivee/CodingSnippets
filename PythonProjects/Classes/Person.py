@@ -1,4 +1,4 @@
-class Person:
+class Person(object):
     def __init__(self, fn="First Name", ln="Last Name", a="Age", g="Gender", i="ID"):
         self.firstname = fn
         self.lastname = ln
@@ -65,7 +65,7 @@ person.setAtt('f', "Marri")
 person.setAtt('l', "Soliuga")
 person.setAtt('a', 21)
 person.setAtt('g', "Female")
-person.setAtt('i', 7892)
+person.setAtt('i', 9890)
 
 #explicit use of __repr__ lets you concatenate with '+'
 for p in personDict:
@@ -75,3 +75,17 @@ print("\n")
 #implicit use of __repr__ means you can't concatenate
 for p in personDict:
     print(p, personDict[p])
+
+class Student(Person):
+    def __init__(self, m="Major"):
+        super(Student, self).__init__()
+        id = str(super(Student, self).getAtt('i'))
+        self.sid = 'A' + id
+        self.major = m
+
+    def __repr__(self):
+        return super(Student, self).__repr__() + str("/" + self.major + "/" + self.sid)
+
+person5 = Person("Anadi", "Uw", 20, "Male", 2016)
+student5 = Student("ChE")
+print(student5)
