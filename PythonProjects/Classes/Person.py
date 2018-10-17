@@ -60,7 +60,7 @@ personDict['p1'] = person1
 personDict['p2'] = person2
 personDict['p3'] = person3
 
-print("\n", person, "\n")
+print("\n" + person.__repr__() + "\n")
 person.setAtt('f', "Marri")
 person.setAtt('l', "Soliuga")
 person.setAtt('a', 21)
@@ -77,15 +77,24 @@ for p in personDict:
     print(p, personDict[p])
 
 class Student(Person):
-    def __init__(self, m="Major"):
-        super(Student, self).__init__()
-        id = str(super(Student, self).getAtt('i'))
-        self.sid = 'A' + id
+    def __init__(self,f="First Name", l="Last Name", a="Age", g="Gender", i="ID", m="Major"):
+        super(Student, self).__init__(f, l, a, g, i)
+        self.sid = 'A-' + str(i)
         self.major = m
 
     def __repr__(self):
         return super(Student, self).__repr__() + str("/" + self.major + "/" + self.sid)
 
-person5 = Person("Anadi", "Uw", 20, "Male", 2016)
-student5 = Student("ChE")
-print(student5)
+student = Student()
+
+#New Student Object
+student0 = Student("Anadi", "Uw", 20, "Male", 2016, "ChE")
+
+#Changing and existing person to student
+student1 = Student(person.getAtt('f'), person.getAtt('l'), person.getAtt('a'), person.getAtt('g'), person.getAtt('i'), "ECE")
+
+studentList = [student, student0, student1]
+
+print("\n")
+for s in studentList:
+    print(s)
