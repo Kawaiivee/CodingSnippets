@@ -48,7 +48,6 @@ class Person:
             pass
 
 person = Person()
-
 person0 = Person("Haruki", "Marukami", 25, "Male", 1234)
 person1 = Person("Noboru", "Watanabe", 30, "Male", 2345)
 person2 = Person("May", "Kasahara", 15, "Female", 3456)
