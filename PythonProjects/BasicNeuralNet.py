@@ -1,4 +1,4 @@
-#!/usr/bin/env/python3
+#!/usr/bin/env python3
 
 import numpy as np
 
@@ -18,11 +18,12 @@ y = np.array([[0,0,1,1]]).T
 
 # seed random numbers to make calculation
 # deterministic to analyze easier set of results
-np.random.seed(2)
+#np.random.seed(2)
 
 # initialize weights randomly with mean 0
 syn0 = 2*np.random.random((3,1)) - 1
-print("Synapse 0 is:\n", syn0)
+print("Synapse 0 is:\n")
+print(syn0)
 
 generations = 100
 for iter in range(generations):
