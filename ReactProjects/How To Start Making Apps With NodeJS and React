@@ -7,7 +7,7 @@ sudo apt install build-essential
 npm install -g react-native-cli
 
 #To start making apps
-react-native init <NewAppName>
+create-react-native-app <NewAppName>
 
 #Make sure your phone 'expo' app is ready! (same network too!)
 sudo npm test <ORRRRRRR> sudo expo test
