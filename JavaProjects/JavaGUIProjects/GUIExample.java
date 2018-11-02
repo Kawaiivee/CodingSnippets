@@ -10,7 +10,7 @@ public class GUIExample{
 
         //Creating the MenuBar and adding components
         JMenuBar mb = new JMenuBar();
-        JMenu m1 = new JMenu("FILE");
+        JMenu m1 = new JMenu("File");
         JMenu m2 = new JMenu("Help");
         mb.add(m1);
         mb.add(m2);
