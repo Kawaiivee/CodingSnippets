@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class GUIExample{
+public class GUIChat{
     public static void main(String[] args){
         //Creating the Frame
         JFrame frame = new JFrame("Chat Frame");
