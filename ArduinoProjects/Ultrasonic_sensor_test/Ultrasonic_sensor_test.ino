@@ -1,9 +1,10 @@
-const int trigPin = A4;
-const int echoPin = A5;
+const int trigPin = A1;
+const int echoPin = A0;
 long duration;
 int distanceCm, distanceInch;
 
 void setup() {
+  Serial.begin(9600);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 }
@@ -28,4 +29,5 @@ void loop() {
   Serial.print(distanceCm);
   Serial.print("inch distance");
   Serial.println(distanceInch);
+  delay(500);
 }
