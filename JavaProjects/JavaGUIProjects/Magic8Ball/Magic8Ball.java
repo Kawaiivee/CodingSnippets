@@ -9,24 +9,26 @@ public class Magic8Ball{
     }
 
     public static void GUI(){
-        //Creating the Frame
+        //Frame
         JFrame frame = new JFrame("Magic8Ball");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(256,80);
 
         //Text Area
         JTextArea messageBox = new JTextArea();
-        messageBox.setEditable(false);        //no adding your own
+        messageBox.setEditable(false);
 
-        //Creating the panel at bottom and adding components
-        //SOUTH contentPane
-        JPanel msgPanel = new JPanel(); // the panel is not visible in output // accepts up to 10 characters...really just kind of setting length of box here
+        //SOUTH pane
+        JPanel msgPanel = new JPanel();
         JButton shakeButton = new JButton("Shake");
         msgPanel.add(shakeButton);
 
+        //shake ball again
         shakeButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent ae){
-                messageBox.setText("Answer: " + shakeBall() + "\n");
+                String answer = shakeBall();
+                System.out.println(answer);
+                messageBox.setText("Answer: " + answer + "\n");
             }
         });
 
