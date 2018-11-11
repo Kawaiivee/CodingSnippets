@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class BasicGUI{
+public class EchoBot{
     public static void main(String[] args){
         GUI();
     }
