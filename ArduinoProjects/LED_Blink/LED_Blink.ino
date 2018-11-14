@@ -1,22 +1,36 @@
-int t;
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
   pinMode(11, OUTPUT);
+  pinMode(12, INPUT);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  for(int i = 100; i <=  500; i = i + 50){
-      digitalWrite(11, HIGH);
-      delay(i);
+char c;
+void loop(){
+  if(Serial.available()){
+    c = Serial.read();
+    if(c == '1'){
+      ping();
+      c = '0';
+    }
+    else if(c == '0'){
       digitalWrite(11, LOW);
-      delay(i);
+      delay(5000);
+    }
   }
+}
 
-  for(int i = 500; i >=  0; i = i - 50){
-      digitalWrite(11, HIGH);
-      delay(i);
-      digitalWrite(11, LOW);
-      delay(i);
-  }
+void ping(){
+  delay(6000);
+  digitalWrite(11, HIGH);
+  delay(200);
+  digitalWrite(11, LOW);
+  delay(200);
+  digitalWrite(11, HIGH);
+  delay(200);
+  digitalWrite(11, LOW);
+  delay(200);
+  digitalWrite(11, HIGH);
+  delay(200);
+  digitalWrite(11, LOW);
+  delay(200);
 }
