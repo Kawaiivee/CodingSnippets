@@ -34,7 +34,7 @@ void setup() {
 double leftDist;
 double midDist;
 double rightDist;
-double wallDist = 35;     //threshold for detecting 'in front of me'
+double wallDist = 20;     //threshold for detecting 'in front of me'
 
 double trigger;           //value to trigger lookAll-think-act
 int brain[] = {0, 0, 0};  //logic based on wall distances
@@ -179,7 +179,7 @@ void lookAll() {
 void lookRight() {
   //Look right
   eyes.write(0);
-  delay(500);
+  delay(200);
   rightDist = scanDistance();
   if (rightDist < wallDist) {
     brain[2] = 1;             //wall to the right
@@ -187,12 +187,12 @@ void lookRight() {
     brain[2] = 0;             //no wall to the right
   }
   Serial.println(rightDist);
-  delay(1000);
+  delay(500);
 }
 void lookLeft() {
   //Look left
   eyes.write(180);
-  delay(500);
+  delay(200);
   leftDist = scanDistance();
   if (leftDist < wallDist) {
     brain[1] = 1;             //wall to the left
@@ -200,12 +200,12 @@ void lookLeft() {
     brain[1] = 0;             //no wall to the left
   }
   Serial.println(leftDist);
-  delay(1000);
+  delay(500);
 }
 void lookForward() {
   //Look forward!
   eyes.write(90);
-  delay(500);
+  delay(200);
   midDist = scanDistance();
   if (midDist < wallDist) {
     brain[0] = 1;             //wall in front
@@ -213,7 +213,7 @@ void lookForward() {
     brain[0] = 0;             //no wall in front
   }
   Serial.println(midDist);
-  delay(1000);
+  delay(500);
 }
 
 double scanDistance() {
