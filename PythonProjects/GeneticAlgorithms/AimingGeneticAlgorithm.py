@@ -3,9 +3,9 @@ import math
 import string
 
 class Archer:
-    def __init__(self, idNum, fit=-1.0, parentidNum=[-1,-1]):
+    def __init__(self, idNum, parentidNum=[-1,-1]):
         self.id = idNum
-        self.fitness = fit
+        self.fitness = -1
         self.position = (0,0)
         self.initialVelocity = round(random.uniform(0.0, 50.0), 1)     #Newtons nearest tenth
         self.angle = round(random.uniform(0.0, 90.0), 1)    #angle from +x axis to +y axis nearest tenth
@@ -15,7 +15,7 @@ class Archer:
         velocityX = self.initialVelocity*math.cos(self.angle)
         velocityY = self.initialVelocity*math.sin(self.angle)
         time = endX/velocityX                                   #time it takes to reach endX
-        endY = (-4.9*(time**2))+velocityY*time + self.position[1]
+        endY = (-4.9*(time**2)) + (velocityY*time) + self.position[1]
         impactVelocity = 0                                      #Implement impact velocity to increase fitness factor later
         return endY
 
@@ -23,16 +23,14 @@ class Archer:
         creatureStr = 'ID: ' + str(self.id) + ' Fit: ' + str(self.fitness) + ' Vo,Angle: ' + str(self.initialVelocity) + ',' + str(self.angle) + ' ParentsID: ' + str(self.parentid[0]) + ',' + str(self.parentid[1])
         return creatureStr
 
-targetX = 20.0
-targetY = 12.0
+targetX = 100
+targetY = 35
+marginY = 20
 population = 16
 generations = 10000
-fit = 90
-random.seed(3)
+fit = 99
+random.seed(2)
 uniqueID = 0
-
-A1 = Archer(1)
-print(A1)
 
 def geneAlgo():
     archers = bigBang(population)
@@ -63,12 +61,17 @@ def evaluate(archers):
 
     for archer in archers:
         actualY = archer.shoot(targetX)
-        percentError = ((targetY-actualY)/(targetY))
-        rawFit = 100*abs(1-percentError)                #fitness score is based on %error
-        if rawFit > 100:
-             rawFit = 0                                 #just die if you miss by too much
-        elif rawFit < 0:
-            rawFit = 0                                  #aka least fit will die
+        print("ActualY is " + str(actualY))
+        a = targetY - marginY
+        b = targetY + marginY
+        if actualY < 0:
+            rawFit = -1
+        elif actualY >= 0 and actualY <= a:
+            rawFit = 1
+        elif actualY >= a and actualY <= b:
+            rawFit = 100-abs(100*((actualY-targetY)/(targetY)))
+        elif actualY >= b:
+            rawFit = -1
         else:
             pass
         archer.fitness = round(rawFit, 2)
@@ -81,12 +84,31 @@ def selection(archers):
     return archers
 
 def crossover(archers):
+    global uniqueID
     offspring = []
     for _ in range((population - len(archers))/2):
-        pass
+        parent1 = random.choice(archers)
+        parent2 = random.choice(archers)
+        while parent1.id == parent2.id:
+            print("Same Parent Detected! with ID: " + str(parent1.id))
+            parent2 = random.choice(archers)
+        child1 = Archer(uniqueID, [parent1.id, parent2.id])
+        uniqueID += 1
+        child2 = Archer(uniqueID, [parent1.id, parent2.id])
+        uniqueID += 1
+
+        #child1 gets the initial velocity of the parent with random angle
+        #child2 gets the angle of the parent with random initial velocity
+        child1.initialVelocity = parent1.initialVelocity
+        child2.angle = parent2.angle
+        offspring.append(child1)
+        offspring.append(child2)
+    archers.extend(offspring)
     return archers
 
 def mutation(archers):
+    #right now all the traits being passed down are not erased
+    #set mutations to occur at probablity p for any trait of the children
     pass
     return archers
 
