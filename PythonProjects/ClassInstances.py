@@ -71,7 +71,6 @@ def cheese():
 @pizza1
 def sauce():
     return 'sauce'
-
 @pizza2
 def sausage():
     return 'sausage'
