@@ -14,7 +14,7 @@ class Archer:
     def shoot(self, endX):
         velocityX = self.initialVelocity*math.cos(math.radians(self.angle))
         velocityY = self.initialVelocity*math.sin(math.radians(self.angle))
-        time = endX/velocityX                                   #time it takes to reach endX
+        time = ((endX-self.position[0])/velocityX)                                   #time it takes to reach endX
         endY = (-4.9*(time**2)) + (velocityY*time) + self.position[1]
         impactVelocity = 0                                      #Implement impact velocity to increase fitness factor later
         return endY
@@ -23,14 +23,15 @@ class Archer:
         creatureStr = 'ID: ' + str(self.id) + ' Fit: ' + str(self.fitness) + ' Vo,Angle: ' + str(self.initialVelocity) + ',' + str(self.angle) + ' ParentsID: ' + str(self.parentid[0]) + ',' + str(self.parentid[1])
         return creatureStr
 
-targetX = 10        #with 'random.seed(2). a decent sized set is targetX = 10 and targetY = 5'
-targetY = 5
-marginY = .8*targetY   #you can be +- 80% from the target. all else, rawfit becomes 1
+targetX = 200            #with 'random.seed(2). a decent sized set is targetX = 10 and targetY = 5'
+targetY = 10
+marginY = .9*targetY    #you can be +- 90% from the target. all else, rawfit becomes 1
 population = 16
 generations = 10000
 fit = 99.90     #threshold to termination
-random.seed(2)  #deterministic
+random.seed(3)  #deterministic
 uniqueID = 0
+tree = []
 
 def geneAlgo():
     archers = bigBang(population)
@@ -48,14 +49,18 @@ def geneAlgo():
             print('Found a creature with target fitness')
             print("\n" + "Our winner of science for the day is archer " + str(archers[0].id))
             print('\n' + str(archers[0]))
-            input("Hit Enter To Look At Ancestry Of Winner")
+            input("\n\nHit Enter To Look At Whole Population\n\n")
             for archer in ancestors:
                 print(archer)
+
+            input("\n\nHit Enter To Look At Winner's Ancestor\n\n")
             ancestry(ancestors, archers[0])
-            print(str(tree))
-            input()
+            for ancestor in tree:
+                print(str(ancestor))
+            input("\n\nHit Enter To Exit")
             exit(0)
-    print("Welp, the target was not able to be hit within " + str(generations) + " generations\nBest archer is " + str(archer[0]))
+
+    print("Welp, the target was not able to be hit within " + str(generations) + " generations")
 
 def track(ancestors, archers):    #basically appends all archers to the ancestors list while removing duplicates
     for archer in archers:
@@ -63,14 +68,13 @@ def track(ancestors, archers):    #basically appends all archers to the ancestor
             ancestors.append(archer)
     return ancestors
 
-tree = []
 def ancestry(ancestors, archer):
     global tree
     currParents = archer.parentid
     if currParents != [-1,-1]:
         if ancestors[archer.parentid[0]].id != -1 and ancestors[archer.parentid[1]].id != -1:
             if archer not in tree:
-                tree.append([archer])
+                tree.append(archer)
                 ancestry(ancestors, ancestors[archer.parentid[0]])
                 ancestry(ancestors, ancestors[archer.parentid[1]])
     else:
@@ -79,7 +83,6 @@ def ancestry(ancestors, archer):
 def bigBang(pop):
     firstGenArchers = []
     global uniqueID
-
     for _ in range(population):
         firstGenArchers.append(Archer(uniqueID))
         uniqueID += 1
