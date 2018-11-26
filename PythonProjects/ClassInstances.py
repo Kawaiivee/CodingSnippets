@@ -81,4 +81,3 @@ def pepperoni():
 
 print(pizza1)
 print(pizza2)
-# ['cheese', 'sauce']
