@@ -1,8 +1,6 @@
 import random
 import math
 import string
-from turtle import *
-from types import *
 
 class Archer:
     def __init__(self, idNum, parentidNum=[-1,-1]):
