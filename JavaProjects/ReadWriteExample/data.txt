@@ -1,7 +1,4 @@
-this
-program
-isn't 
-that 
-robust
-but
-it works
+This program
+isn't that
+robust, but
+it works!
