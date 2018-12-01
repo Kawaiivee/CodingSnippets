@@ -145,10 +145,10 @@ def mutation(archers):
     #set mutations to occur at probablity p for any trait of the children
     for archer in archers:
         mutVar = random.uniform(0.0, 1.0)
-        if mutVar <= 0.05:
+        if mutVar <= 0.005:
             print("INITVELOCITY Mutation for Archer " + str(archer.id))
             archer.initialVelocity = round(random.uniform(1.1, 50.0), 1)
-        elif mutVar <= 0.10 and mutVar > 0.5:
+        elif mutVar <= 0.01 and mutVar > 0.005:
             print("ANGLE Mutation for Archer " + str(archer.id))
             archer.angle = round(random.uniform(0.0, 90.0), 1)
         else:
