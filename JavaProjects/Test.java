@@ -15,6 +15,7 @@ public class Test{
 		Test T = new Test();
 		i = T.plus2(i);
 		System.out.print("Your number plus 2 is: " + i);
+		System.out.print("Changes");
 	}
 	
 	public static void printf(String s){
