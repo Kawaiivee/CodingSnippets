@@ -40,7 +40,7 @@ def Player1():
 	if rY < -behavior*HEIGHT:
 		rY = tmp[0]+random.randint(set,set)*distance
 	P1.setpos(rX,rY)
-	
+
 P2 = Turtle()
 P2.hideturtle()
 P2.pen()
@@ -59,7 +59,7 @@ def Player2():
 def paint():
 	for objects in shapes:
 		shapes[objects]()
-	
+
 def main():
 	if len(sys.argv) > 1:
 		flag = sys.argv[1]
@@ -72,7 +72,7 @@ def main():
 		S.onkey(exit, 'q')
 		S.listen()
 		mainloop()
-	
+
 	#update frame automatically
 	else:
 		paint()
