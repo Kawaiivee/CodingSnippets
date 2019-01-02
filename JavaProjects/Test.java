@@ -18,8 +18,8 @@ public class Test{
 		System.out.print("Changes");
 	}
 
-	public static void printf(String s){
-		System.out.print(s);
+	public static void printf(String str){
+		System.out.print(str);
 	}
 
 	public int plus2(int x){
