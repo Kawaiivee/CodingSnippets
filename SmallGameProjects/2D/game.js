@@ -4,19 +4,19 @@ var ctx = canvas.getContext("2d");
 var ballX = canvas.width/2;
 var ballY = canvas.height-30;
 
-var dx = 2;
-var dy = -2;
+var dx = 5;
+var dy = -5;
 var ballRadius = 10;
 
 function drawBall(){
     if(ballX + ballRadius >= canvas.width)
-        dx=-1*dx;
+        dx = -dx
     else if(ballX - ballRadius <= 0)
-        dx = -1*dx;
+        dx = -dx;
     if(ballY - ballRadius <= 0)
-        dy = -1*dy;
+        dy = -dy
     else if(ballY + ballRadius >= canvas.height)
-        dy = -1*dy;
+        dy = -dy
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI*2);
     ctx.fillStyle = "#FFEE00";
@@ -44,6 +44,12 @@ function drawbat(){
     ctx.closePath();
 }
 
+var rightPressed = false;
+var leftPressed = false;
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
@@ -52,12 +58,6 @@ function keyDownHandler(e) {
         leftPressed = true;
     }
 }
-
-var rightPressed = false;
-var leftPressed = false;
-
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
 
 function keyUpHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
