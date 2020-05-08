@@ -1,0 +1,2 @@
+SELECT 'HELLO WORLD';
+SELECT 'MySQL is fun!';
