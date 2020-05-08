@@ -1,4 +1,0 @@
-This program
-isn't that
-robust, but
-it works!
