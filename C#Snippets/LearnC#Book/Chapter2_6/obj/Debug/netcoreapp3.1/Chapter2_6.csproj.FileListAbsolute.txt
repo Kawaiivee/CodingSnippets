@@ -1,0 +1,13 @@
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\bin\Debug\netcoreapp3.1\Chapter2_6.exe
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\bin\Debug\netcoreapp3.1\Chapter2_6.deps.json
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\bin\Debug\netcoreapp3.1\Chapter2_6.runtimeconfig.json
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\bin\Debug\netcoreapp3.1\Chapter2_6.runtimeconfig.dev.json
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\bin\Debug\netcoreapp3.1\Chapter2_6.dll
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\bin\Debug\netcoreapp3.1\Chapter2_6.pdb
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.csprojAssemblyReference.cache
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.csproj.CoreCompileInputs.cache
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.AssemblyInfoInputs.cache
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.AssemblyInfo.cs
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.dll
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.pdb
+C:\Users\Kawaiivee PC\Desktop\Git\CodingSnippets\C#Snippets\LearnC#Book\Chapter2_6\obj\Debug\netcoreapp3.1\Chapter2_6.genruntimeconfig.cache
