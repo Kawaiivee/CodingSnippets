@@ -44,7 +44,7 @@ def Player1():
 P2 = Turtle()
 P2.hideturtle()
 P2.pen()
-P2.color("#000000")
+P2.color("#FF0000")
 P2.setpos(0,0)
 
 def Player2():

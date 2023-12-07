@@ -1,10 +1,11 @@
 from fuzzywuzzy import fuzz
 import random
 import string
+import time
 
 class Creature:
     def __init__(self, length, id=-1, parents=[0, 0]):
-        self.string = ''.join(random.choice(string.letters) for _ in range(length))
+        self.string = ''.join(random.choice(string.ascii_letters) for _ in range(length))
         self.fitness = -1
         self.myParents = [parents[0], parents[1]]
         self.myid = id
@@ -17,7 +18,7 @@ in_str_len = None
 population = 20
 spawn = population
 generations = 10000
-fit = 90
+fit = 95
 random.seed(0)
 
 def geneAlgo(spawn):
@@ -58,7 +59,7 @@ def selection(creatures):
 
 def crossover(creatures, spawnNum):
     offspring = []
-    for _ in range((population - len(creatures)) / 2):
+    for _ in range((population - len(creatures)) // 2):
         parent0 = random.choice(creatures)
         parent1 = random.choice(creatures)
         while parent1 == parent0:
@@ -83,10 +84,10 @@ def mutation(creatures):
     for creature in creatures:
         for idx, param in enumerate(creature.string):
             if random.uniform(0.0, 1.0) <= 0.1:
-                creature.string = creature.string[0:idx] + random.choice(string.letters) + creature.string[idx+1:in_str_len]
+                creature.string = creature.string[0:idx] + random.choice(string.ascii_letters) + creature.string[idx+1:in_str_len]
     return creatures
 
 if __name__ == '__main__':
-    in_str = 'Bat'
+    in_str = 'aa'
     in_str_len = len(in_str)
     geneAlgo(spawn)
